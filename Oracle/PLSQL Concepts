@@ -1,0 +1,36 @@
+----------  Oracle Topics ----------  
+External table
+Materialised view - Autosys (Tool)
+Views
+Bulk collect
+Ref cursor
+Types of collection
+
+VPD -(Virtual Private data) Security
+Oracle InBuilt packages
+Blob,Clob
+List of Hints
+---------------------------------------
+Informatica - Cleanser tool
+Adobe Info Sphere
+
+dbms_stats.gather_table_stats 
+
+DDL, DML
+datatypes
+blob, clob (Can store a book)
+
+synonyms
+
+database link - connect externally (DB links)
+Trigger - limit  - EXE immediate for DDL (Autonomous transaction)
+	- Function  - DDL possible in similar ways
+columns - limit - 1000
+
+Pipelined function, Funcs and procedure
+
+Aggregate functions
+
+CTE - Common set 
+
+deadlock
