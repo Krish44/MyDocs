@@ -1,0 +1,131 @@
+Link: http://plsql-tutorial.com/plsql-cursors.htm
+	http://infolab.stanford.edu/~ullman/fcdb/oracle/or-proc.html
+	https://www.tutorialspoint.com/plsql/plsql_quick_guide.htm
+	
+
+PL/SQL Identifiers:
+ a name that is given for a PL/SQL object. The object could be constant, variable, 
+ exception, cursors, procedures, function, package, trigger, object type, reserve word or label. 
+ 
+Autonomous Transactions
+ Autonomous transactions allow you to leave the context of the calling transaction, 
+ perform an independant transaction, and return to the calling transaction without affecting it's state.
+ 
+A bind variable is an INPUT into the query you provide.  (:)
+A host variable is where you put your data.  (&)
+A variable inside a sql statement is always called "bind variable". 
+A variable outside of embedded sql is a "host variable"
+--------------------------------------------------------
+select empno into :eno from emp where ename = :x; 
+end; 
+/ 
+
+:eno and :x are bind varibales
+--------------------------------------------------------
+SQL error code
+SQLCA structure
+Procedure sample
+Package body specification
+   without body it will run
+Triggers - row level - column level
+instr : Command to remove common content
+Exceptions
+--------------------------------------------------------
+Trigger
+ Trigger is stored into database and invoked repeatedly, when specific condition match. (DML statement)
+
+1) Row level trigger - An event is triggered for each row upated, inserted or deleted. 
+2) Statement level trigger - An event is triggered for each sql statement executed. 
+
+ CREATE or REPLACE TRIGGER trg1
+	BEFORE
+	INSERT ON emp1
+	FOR EACH ROW
+BEGIN
+	:new.ename := upper(:new.ename);
+END;
+/
+
+......................................
+CREATE or REPLACE TRIGGER price_history_trigger 
+BEFORE UPDATE OF unit_price 
+ON product 
+FOR EACH ROW 
+BEGIN 
+INSERT INTO product_price_history 
+VALUES 
+(:old.product_id, 
+ :old.product_name, 
+ :old.supplier_name, 
+ :old.unit_price); 
+END; 
+/ 
+--------------------------------------------------------
+
+Procedure
+ * Functions are normally used for computations where as procedures are normally used for executing business logic. 
+ *  Procedure can return multiple values
+CREATE [OR REPLACE] PROCEDURE procedure_name 
+[(parameter_name [IN | OUT | IN OUT] type [, ...])] 
+{IS | AS} 
+BEGIN 
+  < procedure_body > 
+END procedure_name; 
+
+Ex:------------>>
+DECLARE 
+   a number; 
+PROCEDURE squareNum(x IN OUT number) IS 
+BEGIN 
+  x := x * x; 
+END;  
+BEGIN 
+   a:= 23; 
+   squareNum(a); 
+   dbms_output.put_line(' Square of (23): ' || a); 
+END; 
+/
+
+--------------------------------------------------------
+
+Cursors:
+ * An explicit cursors are used to process multirow SELECT statements 
+ * An implicit cursor is used to process INSERT, UPDATE, DELETE and single row SELECT. .INTO statements.
+ * Declare, Prepare, execute, Open, Fetch - into, Close
+ * cursor attributes: %FOUND, %ISOPEN, %NOTFOUND, and %ROWCOUNT. 
+--------------------------------------------------------
+Variables:
+VARCHAR - support distinction between NULL and empty string
+VARCHAR2 - does not distinguish between a NULL and empty string, and never will.
+--------------------------------------------------------
+Types of Exception.
+There are 3 types of Exceptions. 
+a) Named System Exceptions  (Predefined exceptions)
+b) Unnamed System Exceptions (Non- Predefined exceptions)
+c) User-defined Exceptions
+--------------------------------------------------------
+VARCHAR is reserved by Oracle to support distinction between NULL and empty string in future, as ANSI standard prescribes.
+
+substr:
+substr(string,n,m): It returns the characters from nth position, m characters long
+Ex:-substr(abcdefgh,3,3) it returns cde
+
+instr:
+instr(string,n,m):It returns the position of the nth character of the mth occurrence.
+Ex:-instr(abcadea,'a',1,3) it returns 7
+
+LTRIM('6372Tech', '0123456789')
+Result: 'Tech'   -- Removes all individual occurrences of the ref, not just pattern
+
+TRIM(BOTH '1' FROM '123Tech111')
+Result: '23Tech'
+
+TRIM('   tech   ')
+Result: 'tech'
+
+RTRIM('Techxyxxyzyyyxx', 'xyz')
+Result: 'Tech'
+
+REPLACE('222tech', '2', '3');
+Result: '333tech'
+--------------------------------------------------------
