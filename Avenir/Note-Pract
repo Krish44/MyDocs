@@ -1,0 +1,38 @@
+http://effbot.org/
+
+BRUNO:
+https://www.youtube.com/watch?v=aIdSGjz-6DA
+
+=====================================================
+num_lines = sum(1 for line in open('myfile.txt') if line.rstrip())
+num_lines = sum(1 for line in open('myfile.txt'))
+
+ it would be better to use 'with open(filename)' to be sure the file closes when done
+ 
+ ===============================
+ cpn_file = open('Central Part number list.txt')
+ count_lines = len(cpn_file.readlines())
+ ===============================
+ 
+     win.wm_title("LOC")        # Gives title to window
+    L1 = Label(win, text="File Name")
+    E1 = Entry(win, bd=5)
+    L1.grid(row=1, column=1, sticky=W)   # If it is grid it should br grid in all places
+    E1.grid(row=1, column=2, sticky=W)
+    q1 = Button(win, text='Quit', command=win.quit)
+    q1.grid(row=3, column=3, sticky=W, pady=4)
+    win.mainloop()
+	
+http://zetcode.com/gui/tkinter/layout/  : Layout management in Tkinter
+=======================================
+
+CSV to Excel
+from pyexcel.cookbook import merge_all_to_a_book
+import pyexcel.ext.xlsx # needed to support xlsx format, pip install pyexcel-xlsx
+import glob
+
+
+merge_all_to_a_book(glob.glob("your_csv_directory/*.csv"), "output.xlsx")
+=======================================
+
+	
