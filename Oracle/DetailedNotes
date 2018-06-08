@@ -14,6 +14,16 @@ Case vs. Decode
  
 --------------------------------------------------- 
 Oracle Joins
+Equijoins: An equijoin is a join with a join condition containing an equality operator. 
+An equijoin combines rows that have equivalent values for the specified columns. 
+
+Self Joins: A self join is a join of a table to itself. 
+This table appears twice in the FROM clause and is followed by table aliases that qualify column names in the join condition.
+
+Cross Join/Cartesian Product:
+If two tables in a join query have no join condition, then Oracle Database returns their Cartesian product. 
+Result will have 
+---------------------------------------------------
 Views
 Bulk collect
 Ref cursor
@@ -31,6 +41,12 @@ Materialised view - Autosys (Tool):
  Materialized view is a database object that contains the results of a query. 
  For example, it may be a local copy of data located remotely, 
  or may be a subset of the rows and/or columns of a table or join result, or may be a summary using an aggregate function.
+---------------------------------------------------
+Difference betweeen MV and V:
+Materialized views are disk based and are updated periodically based upon the query definition.
+Views are virtual only and run the query definition each time they are accessed.
+View takes larger execution time, but mview takes smaller execution time than views (for the same select statement).
+Indexes can be created on mviews to gain more performance, but indexes cannot be created on views.
 ---------------------------------------------------
 VPD -(Virtual Private data) Security
 Oracle In Built packages
@@ -64,6 +80,7 @@ List of Hints
 Temporary tables
 Types of Indexing
 Driving table
+Index on table
 deadlock
 Pipelined function, Funcs and procedure
 Aggregate functions
