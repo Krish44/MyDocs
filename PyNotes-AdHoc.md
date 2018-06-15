@@ -7,8 +7,8 @@ Can define your own python virtual environment and add everything you need witho
 
 * Python program to graphically display flow of jobs
  - graphviz for tree plotting
- -networkx package and matplotlib
-  - Types of graphs afforded by networkx like shell, spring, circular etc
+ - networkx package and matplotlib
+ - Types of graphs afforded by networkx like shell, spring, circular etc
 
 * Autonomous car runs on neural network
   High Level Details
@@ -19,8 +19,9 @@ Can define your own python virtual environment and add everything you need witho
 * re example
 ``` python
 string=”anc12md3lop454mq”, now the output must be [12,3,454].	
-	import re #regex module
-	raw = "anc12md3lop454mq" #raw data
+
+import re #regex module
+raw = "anc12md3lop454mq" #raw data
 numbers = re.findall(r'(\d+)', raw) #returns all matches
-	print(numbers)	
+print(numbers)	
 ```
