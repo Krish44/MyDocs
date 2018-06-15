@@ -6,12 +6,12 @@ Can define your own python virtual environment and add everything you need witho
 * Python lib like pandas, seaborn, matplotlib
 
 * Python program to graphically display flow of jobs
- - graphviz for tree plotting
- - networkx package and matplotlib
- - Types of graphs afforded by networkx like shell, spring, circular etc
+  - graphviz for tree plotting
+  - networkx package and matplotlib
+  - Types of graphs afforded by networkx like shell, spring, circular etc
 
 * Autonomous car runs on neural network
-  High Level Details
+  - High Level Details
   1. Raspberry PI
   2. Used Tensorflow and opencv
   3. It works on Convolution network
