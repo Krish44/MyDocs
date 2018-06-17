@@ -1,3 +1,20 @@
+# Contents
+* [Quora Data Science FAQ](https://www.quora.com/topic/Data-Science/faq)
+* [Quora- DataScince Page](https://www.quora.com/topic/Data-Science)
+* [Probability Cheat sheet](http://www.wzchen.com/probability-cheatsheet/)
+
+* Harvard's Data Science Course -CS109 
+ - [Class main page](http://cs109.github.io/2015/)
+ - [Git-Page](https://github.com/cs109/content)
+ - [Class Material](http://cs109.github.io/2015/pages/videos.html)
+
+
+* Requirements:
+  - Multivariable Calculus, Linear Algebra, and Python
+  - R is powerful for dedicated statistical tasks, 
+	Python is more versatile as it will connect you more to production-level work.
+
+
 # Reference Links
 
 - [Pandas-Data Quest -Cheat sheet](https://www.dataquest.io/blog/pandas-cheat-sheet/)
