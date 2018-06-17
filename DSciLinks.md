@@ -4,9 +4,9 @@
 * [Probability Cheat sheet](http://www.wzchen.com/probability-cheatsheet/)
 
 * Harvard's Data Science Course -CS109 
- - [Class main page](http://cs109.github.io/2015/)
- - [Git-Page](https://github.com/cs109/content)
- - [Class Material](http://cs109.github.io/2015/pages/videos.html)
+  - [Class main page](http://cs109.github.io/2015/)
+  - [Git-Page](https://github.com/cs109/content)
+  - [Class Material](http://cs109.github.io/2015/pages/videos.html)
 
 
 * Requirements:
