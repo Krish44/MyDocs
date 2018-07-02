@@ -85,3 +85,12 @@ deadlock
 Pipelined function, Funcs and procedure
 Aggregate functions
 
+Ref cursor
+Ext table
+Mutating a  trigger
+Updating a view
+Materialised view - refresh rate - difference
+Oracle scheduler
+Performance tuning
+Collections - types
+Bulk collect
