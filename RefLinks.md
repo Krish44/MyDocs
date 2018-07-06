@@ -9,3 +9,6 @@ https://github.com/thewhitetulip/build-app-with-python-antitextbook/tree/master/
 
 Stanford Uni DB course link:
 https://lagunita.stanford.edu/courses/Engineering/db/2014_1/about
+
+py Magic Methods
+https://www.python-course.eu/python3_magic_methods.php
