@@ -4,6 +4,17 @@ A name that is given for a PL/SQL object. The object could be constant, variable
 
 ## Oracle datatypes
 ## Oracle Joins - Types of Joins
+1. Cross Join/Cartesian Product
+2. Natural Join
+3. Inner Join
+4. Outer join
+ a.Left Outer Join
+ b.Right Join
+ c.Full Outer Join
+5. Anti Join
+6. Semi Join
+7. Self Join
+8. Equi Join and Non Equi Join
 
 **Equijoins:**
 An equijoin is a join with a join condition containing an equality operator. 
@@ -16,7 +27,15 @@ This table appears twice in the FROM clause and is followed by table aliases tha
 If two tables in a join query have no join condition, then Oracle Database returns their Cartesian product. 
 Result will have.............
 
+Link: https://www.techdoubts.com/different-types-of-joins-in-oracle/
+## Table - keys
+Primary key
+Foreign key
+Unique key
+## Indexes
 ## Views
+Types of views
+
 ## Materialised view 
 
  Materialized view is a database object that contains the results of a query. 
@@ -24,7 +43,7 @@ Result will have.............
  or may be a subset of the rows and/or columns of a table or join result, or may be a summary using an aggregate function.
  **Materialised view - refresh rate - difference**
  **Execution of materialised view**
-
+## How to update a view
 ## Autosys (Tool)
 ## Bulk collect
 ## Types of collection
@@ -61,22 +80,19 @@ CLOB data type stores variable-length character data (character large object) in
 ## Temporary tables
 ## Types of Indexing
 ## synonyms 
-
 You don't want the users to have to worry about knowing which schema owns the object.
-
 ## Grant
 ## Driving table
 ## Index on table
 ## DBMS system commands
-
+dbms_random.value( 10, 100 )
 dbms_stats.gather_table_stats
 
 ## Autonomous Transactions
-
  Autonomous transactions allow you to leave the context of the calling transaction, 
  perform an independent transaction, and return to the calling transaction without affecting it's state.
  - If commit in autotracns affects current block DML 
-
+ - Example
 ## deadlock
 ## Triggers
 
@@ -124,8 +140,5 @@ dbms_stats.gather_table_stats
 ## Is it possible to commit in a function
 ## How to call a function in a procedure
 ## How to handle large amount of data  
-## How to update a view
-
-
 ## Writing security scripts
 ## syntax of oracle object creation
