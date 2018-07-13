@@ -1,7 +1,9 @@
 ## PL/SQL Identifiers
 
 A name that is given for a PL/SQL object. The object could be constant, variable, exception, cursors, procedures, function, package, trigger, object type, reserve word or label.
-
+## Version Information
+ - SELECT * FROM v$version;      --  all version information from Oracle
+ - SELECT * FROM v$version WHERE banner LIKE 'Oracle%';  -- Only version
 ## Oracle datatypes
 ## Oracle Joins - Types of Joins
 1. Cross Join/Cartesian Product
@@ -29,13 +31,14 @@ Result will have.............
 
 Link: https://www.techdoubts.com/different-types-of-joins-in-oracle/
 ## Table - keys
-Primary key
-Foreign key
-Unique key
+- **Primary key**
+- **Foreign key ** is a way to enforce referential integrity within your Oracle database. A foreign key means that values in one table must also appear in another table.
+- **Unique key** 
 ## Indexes
 ## Views
-Types of views
-
+- Types of views
+ - Simple view (Single table)
+ - Complex view (Cobination of tables)
 ## Materialised view 
  Materialized view is a database object that contains the results of a query. 
  For example, it may be a local copy of data located remotely, 
@@ -45,8 +48,11 @@ Types of views
 ## How to update a view
 ## Autosys (Tool)
 ## Bulk collect
-## Types of collection
+## Collection
+A *Collection* is an ordered group of elements, all of the same type. Each element has a unique subscript, called an index, that determines its position in the collection
 ## Ref cursor
+## cursor
+When a query is executed in oracle, a result set is produced and stored in the memory. Oracle allows the programmer to access this result set in the memory through cursors. 
 ## Informatica - Cleanser tool
 ## Adobe Info Sphere
 ## Host Array
@@ -114,6 +120,16 @@ dbms_stats.gather_table_stats
 ## Database links 
 - connect externally (DB links)
 ## Oracle scheduler
+DBMS_SCHEDULER.CREATE_JOB (   );  
+DBMS_SCHEDULER.create_program ( );  
+
+-- Display job details  
+SELECT owner, job_name, enabled FROM dba_scheduler_jobs;
+ 
+-- Display the program details.  
+SELECT owner, program_name, enabled FROM dba_scheduler_programs;  
+**Links:**  
+https://oracle-base.com/articles/10g/scheduler-10g#jobs
 ## Performance tuning
 ## coalese - truncate - Concatenation
 ## Case vs. Decode
