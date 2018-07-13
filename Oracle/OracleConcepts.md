@@ -40,13 +40,24 @@ Link: https://www.techdoubts.com/different-types-of-joins-in-oracle/
  Simple view (Single table)  
  Complex view (Cobination of tables)  
 ## Materialised view 
- Materialized view is a database object that contains the results of a query. 
- For example, it may be a local copy of data located remotely, 
- or may be a subset of the rows and/or columns of a table or join result, or may be a summary using an aggregate function.
- **Materialised view**  
- **Refresh rate - difference**  
- **Execution of materialised view**  
+Materialized view is a database object that contains the results of a query. 
+For example, it may be a local copy of data located remotely, 
+or may be a subset of the rows and/or columns of a table or join result, or may be a summary using an aggregate function.
+**Materialised view**  
+**Refresh rate - difference**  
+**Execution of materialised view**  
+
+## Materialised view vs. view
+**Difference betweeen MV and V:**
+ - Materialized views are disk based and are updated periodically based upon the query definition.
+ - Views are virtual only and run the query definition each time they are accessed.
+ - View takes larger execution time, but mview takes smaller execution time than views (for the same select statement).
+ - Indexes can be created on mviews to gain more performance, but indexes cannot be created on views.  
+
+*EXEC DBMS_MVIEW.refresh('EMP_MV');* -- Manually refreshed using the DBMS_MVIEW package
+[Materialised view](https://oracle-base.com/articles/misc/materialized-views#basic-syntax)
 ## How to update a view
+[Instead of trigger usage](https://www.mkyong.com/oracle/oracle-plsql-instead-of-trigger-example/)
 ## Autosys (Tool)
 ## Bulk collect
 ## Collection  
@@ -115,17 +126,19 @@ dbms_stats.gather_table_stats
 - limit  
 - EXE immediate for DDL (Autonomous transaction)
 - Function  - DDL possible in similar ways
--- Max triggers on a table
-
+- **Max triggers on a table** (12)  
+   Insert/Update/Delete :- 3 
+   Before/After:- 2 
+   Row Level/Statement Level:-2 
+   Hence 3*2*2 
+ - There is no limit. Also, from 11g on wards, compound triggers are supported  
 ## Mutating a  trigger
 ## columns 
 
 - limit - 1000 In Newer version of Oracle
 
 ## CTE 
-
 - Common set 
-
 ## Database links 
 - connect externally (DB links)
 ## Oracle scheduler
@@ -149,13 +162,6 @@ https://oracle-base.com/articles/10g/scheduler-10g#jobs
  * decode can not be used outside a query
  * Case can be used
 
-## Materialised view vs. view
-
-- Difference betweeen MV and V:
-- Materialized views are disk based and are updated periodically based upon the query definition.
-- Views are virtual only and run the query definition each time they are accessed.
-- View takes larger execution time, but mview takes smaller execution time than views (for the same select statement).
-- Indexes can be created on mviews to gain more performance, but indexes cannot be created on views.
 ## Exception Handling
 To handle certain kinds of errors meaningful to your PL/SQL program.
  - Other than 'when others' and 'no data found'
