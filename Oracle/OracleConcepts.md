@@ -9,10 +9,10 @@ A name that is given for a PL/SQL object. The object could be constant, variable
 1. Cross Join/Cartesian Product
 2. Natural Join
 3. Inner Join
-4. Outer join
- a.Left Outer Join
- b.Right Join
- c.Full Outer Join
+4. Outer join  
+ a.Left Outer Join  
+ b.Right Join  
+ c.Full Outer Join  
 5. Anti Join
 6. Semi Join
 7. Self Join
@@ -32,24 +32,25 @@ Result will have.............
 Link: https://www.techdoubts.com/different-types-of-joins-in-oracle/
 ## Table - keys
 - **Primary key**
-- **Foreign key ** is a way to enforce referential integrity within your Oracle database. A foreign key means that values in one table must also appear in another table.
+- **Foreign key** is a way to enforce referential integrity within your Oracle database. A foreign key means that values in one table must also appear in another table.
 - **Unique key** 
 ## Indexes
 ## Views
-- Types of views
- - Simple view (Single table)
- - Complex view (Cobination of tables)
+- Types of views  
+ Simple view (Single table)  
+ Complex view (Cobination of tables)  
 ## Materialised view 
  Materialized view is a database object that contains the results of a query. 
  For example, it may be a local copy of data located remotely, 
  or may be a subset of the rows and/or columns of a table or join result, or may be a summary using an aggregate function.
- **Materialised view - refresh rate - difference**
- **Execution of materialised view**
+ **Materialised view**  
+ **Refresh rate - difference**  
+ **Execution of materialised view**  
 ## How to update a view
 ## Autosys (Tool)
 ## Bulk collect
-## Collection
-A *Collection* is an ordered group of elements, all of the same type. Each element has a unique subscript, called an index, that determines its position in the collection
+## Collection  
+A **Collection** is an ordered group of elements, all of the same type. Each element has a unique subscript, called an index, that determines its position in the collection
 ## Ref cursor
 ## cursor
 When a query is executed in oracle, a result set is produced and stored in the memory. Oracle allows the programmer to access this result set in the memory through cursors. 
@@ -60,10 +61,13 @@ When a query is executed in oracle, a result set is produced and stored in the m
 ## Set length
 ## Cursor scenarios 
 ## Oracle hints
-
  - List of Hints  
+ index, ordered, append, 
  - Disadvantage of hints
-
+ [When Not To Use Hints](https://oracle.readthedocs.io/en/latest/sql/hints/when-not-to-use.html)
+ - Example:  
+ select /*+ index(customer cust_primary_key_idx) */ * from customer;
+ - [Hints list](http://www.adp-gmbh.ch/ora/sql/hints/index.html)
 ## External Table
 ## Moving data into file
 ## sqlloader
@@ -90,6 +94,11 @@ CLOB data type stores variable-length character data (character large object) in
 You don't want the users to have to worry about knowing which schema owns the object.
 ## Grant
 ## Driving table
+- We process the from clause from the RIGHT to the LEFT  
+- Pick a driving table from the end of the FROM list  
+- Example: select * from emp, dept where emp.deptno = dept.deptno;  
+We would fetch rows from DEPT in a full scan and then find the rows in EMP that match. DEPT is the driving table.  
+
 ## Index on table
 ## DBMS system commands
 dbms_random.value( 10, 100 )
