@@ -37,7 +37,6 @@ Unique key
 Types of views
 
 ## Materialised view 
-
  Materialized view is a database object that contains the results of a query. 
  For example, it may be a local copy of data located remotely, 
  or may be a subset of the rows and/or columns of a table or join result, or may be a summary using an aggregate function.
@@ -78,6 +77,8 @@ CLOB data type stores variable-length character data (character large object) in
 ## Pipelined function, Funcs and procedure
 ## Aggregate functions
 ## Temporary tables
+- Types: Global Temporary Tables, Private Temporary Tables (since Oracle 18c)
+- Clauses: ON COMMIT DELETE ROWS, ON COMMIT PRESERVE ROWS
 ## Types of Indexing
 ## synonyms 
 You don't want the users to have to worry about knowing which schema owns the object.
@@ -130,11 +131,15 @@ dbms_stats.gather_table_stats
 - Views are virtual only and run the query definition each time they are accessed.
 - View takes larger execution time, but mview takes smaller execution time than views (for the same select statement).
 - Indexes can be created on mviews to gain more performance, but indexes cannot be created on views.
-
+## Exception Handling
+To handle certain kinds of errors meaningful to your PL/SQL program.
+ - Other than 'when others' and 'no data found'
+ - Ex: TOO_MANY_ROWS, INVALID_CURSOR, INVALID_NUMBER, ZERO_DIVIDE, CASE_NOT_FOUND
 ## Pragma - errors
-## Types of exception
-
- Other than 'when others' and 'no data found'
+ - Associating a PL/SQL Exception with a Number: Pragma EXCEPTION_INIT
+ - To handle error conditions (typically ORA- messages) that have no predefined name, you must use the OTHERS handler or the pragma EXCEPTION_INIT. A pragma is a compiler directive that is processed at compile time, not at run time.
+ - Syntax: PRAGMA EXCEPTION_INIT(exception_name, -Oracle_error_number);
+https://docs.oracle.com/cd/B10501_01/appdev.920/a96624/07_errs.htm#917
 
 ## 12c vs 11g
 ## Is it possible to commit in a function
