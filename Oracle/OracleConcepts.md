@@ -80,6 +80,9 @@ When a query is executed in oracle, a result set is produced and stored in the m
  select /*+ index(customer cust_primary_key_idx) */ * from customer;
  - [Hints list](http://www.adp-gmbh.ch/ora/sql/hints/index.html)
 ## External Table
+- Allows Oracle to query data that is stored outside the database in flat files.  
+- CREATE TABLE..ORGANIZATION EXTERNAL syntax.  
+[External table](https://oracle-base.com/articles/9i/external-tables-9i)
 ## Moving data into file
 ## sqlloader
 ## BLOB
@@ -119,7 +122,8 @@ dbms_stats.gather_table_stats
  Autonomous transactions allow you to leave the context of the calling transaction, 
  perform an independent transaction, and return to the calling transaction without affecting it's state.
  - If commit in autotracns affects current block DML 
- - Example
+ - Example  
+[Autonomous Transaction](https://oracle-base.com/articles/misc/autonomous-transactions)
 ## deadlock
 ## Triggers
 
