@@ -1,0 +1,42 @@
+Bind variables: 
+Constants  - new execution plan each time data passsed
+and literals -  single execution plan
+
+Cursor sharing:
+- specific private sql area
+  -- Private dn shared sql area
+  
+  shared cursor
+  - Parent dn Child cursor
+  - Same query with letter macth, share same execution plan, same parent cursor
+  
+  V$%SQLAREA view - parent
+  V$SQL
+  
+  Hard parse& soft parse
+  Bind variable peeking
+  Only during exe plan, data passed to bind variabnles wil be checked by optimiser
+  
+  Adaptive cursor sharing
+  CURSOR_SHARING = {EXACT|}
+  
+  Adaptive cursor sharing
+  - Cursor is place where execution plan is stored
+  Cardinality of any where clause
+  - First time always a hard parse
+  - Bind sensitive (Optimal plan may depend on the value bind variables) 
+  - Bind aware  Bind Sensitive cursor that is eligible to use different plans for different bind values
+	- best plan for the current bind value 
+
+ Cursor Merging:
+ A bind aware cursor created by optimiser, if this plan is same a s existing cursor then optimiseer will
+ perform cursor merging
+ 
+ V$SQL - Bind sensitive ' aware
+ V$SQL-CS_HISTOGRAM - distribution of
+ V$SQL_CS_SELECTIVITY - 
+ V$SQL_CS_STATISTICS - 
+ 
+ BIND_AWARE and NO_BIND_AWARE hints
+ - B.A - Will do adaptive cursor sharing
+ 
