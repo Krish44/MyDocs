@@ -169,6 +169,31 @@ We would fetch rows from DEPT in a full scan and then find the rows in EMP that 
  - Triggers on truncate?
 ## In vs EXISTS
 - More efficient one?
+'IN' can be used on sub-queries as well as with values.  
+Eg:   
+
+**With values:**  
+SELECT *
+FROM test_emp  
+WHERE deptno in ( 10,20,30);  
+
+**With sub-query:**
+SELECT *
+FROM test_emp  
+WHERE deptno in ( select deptno 
+from test_emp   
+where deptno=10 or deptno=20 or deptno=30);
+
+**Whereas 'EXISTS' can only be used on sub-queries.**
+SELECT *
+FROM test_emp
+WHERE exists ( select deptno
+from test_emp 
+where deptno=10 or deptno=20 or deptno=30);  
+  
+Exists is used to check whether the sub-query returns any rows 
+whereas IN is used as multiple OR operator
+
 ## SQL\*Loader vs External Table
 ## Exception Handling
 To handle certain kinds of errors meaningful to your PL/SQL program.
