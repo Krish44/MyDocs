@@ -1,0 +1,111 @@
+http://www.dba-oracle.com/t_ref_cursor_examples.htm   URL
+====================================================
+
+
+
+PL/SQL Ref Cursors examples
+
+A ref cursor is a variable, defined as a cursor type, which will point to, or reference a cursor result. The advantage that a ref cursor has over a plain cursor is that is can be passed as a variable to a procedure or a function. The REF CURSOR can be assigned to other REF CURSOR variables.
+
+This is a powerful capability in that the cursor can be opened, then passed to another block for processing, then returned to the original block to be closed. The cursor variable can also be returned by a function and assigned to another variable. The REF CURSOR variable is not a cursor, but a variable that points to a cursor. Before assigning a cursor variable, a cursor type must be defined.
+
+type author_cursor is ref cursor;
+
+This REF CURSOR is a weak typed cursor variable because it does not define the datatype the cursor will return. Below is the same cursor that is strongly typed.
+
+type author_cursor is ref cursor
+returning author%rowtype;
+
+By strongly typing the cursor variable, you define what the cursor can return. If a strongly typed cursor returns something other that its return type, a ROWTYPE_MISMATCH exception is raised. A strongly typed cursor type is less flexible but less prone to programming errors. The PL/SQL compiler will verify that the FETCH clause has the correct variable/record for the cursor return type at compile time.
+
+Once the cursor type is defined, the actual variable can be defined as the cursor type.
+
+c1 author_cursor;
+
+Now c1 is a variable of a cursor type. It is opened using a SQL statement.
+
+open c1 for select * from authors;
+
+Now c1 has all the attributes of the actual cursor. As with any cursor it is important to close the cursor as soon as you have completed processing.
+
+SQL> declare
+2 type auth_cursor is ref cursor;
+3 c1 auth_cursor;
+4 r_c1 author%rowtype;
+5 begin
+6 open c1 for select * from author;
+7 fetch c1 into r_c1;
+8 if c1%isopen then
+9 dbms_output.put_line(
+'The Cursor is open.');
+10 end if;
+11 dbms_output.put_line(
+'Row Count is '||c1%rowcount);
+12 close c1;
+13 if not c1%isopen then
+14 dbms_output.put_line(
+'The Cursor is closed.');
+15 end if;
+16 end;
+17 /
+
+The Cursor is open.
+Row Count is 1
+The Cursor is closed.
+
+Here some of the cursor attributes are used to process the cursor. Notice that the record used to hold a fetched cursor row is defined as an author table %rowtype. Even though the example cursor variable is defined, the record can not use it because the cursor variable return type is not defined. The example below attempts to create a cursor %rowtype variable for processing.
+
+SQL> declare
+2 type auth_cursor is ref cursor;
+3 c1 auth_cursor;
+4 r_c1 c1%rowtype;
+5 begin
+6 null;
+7 end;
+8 /
+r_c1 c1%rowtype;
+*
+ERROR at line 4:
+ORA-06550: line 4, column 8:
+PLS-00320: the declaration of the type of this 
+expression is incomplete or malformed
+ORA-06550: line 4, column 8:
+PL/SQL: Item ignored
+
+However, a strongly typed cursor can use the cursor variable to define the cursor record.
+
+SQL> declare
+2 type auth_cursor is ref cursor 
+return author%rowtype;
+3 c1 auth_cursor;
+4 r_c1 c1%rowtype;
+5 begin
+6 null;
+7 end;
+8 /
+
+In this example, the auth_cursor type returns an author%rowtype. Because this is defined in line 2, the record defined in line 4 can now use it.
+
+Cursor variables that are weakly typed can be defined to return any values. In the example below, the cursor variable c1 is defined as three different statements.
+
+SQL> declare
+2 type auth_cursor is ref cursor;
+3 c1 auth_cursor;
+4 r_c1 author%rowtype;
+5 r2_c1 book%rowtype;
+6 r3_c1 number;
+7 begin
+8 open c1 for select * from author;
+9 fetch c1 into r_c1;
+10 close c1;
+11 open c1 for select * from book;
+12 fetch c1 into r2_c1;
+13 close c1;
+14 open c1 for select sum(quantity)
+15 from store join sales 
+using (store_key)
+16 group by store_name;
+17 fetch c1 into r3_c1;
+18 close c1;
+19 end;
+20 /
