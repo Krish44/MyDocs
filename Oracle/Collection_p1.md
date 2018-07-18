@@ -1,17 +1,22 @@
 
-A collection is an ordered group of elements, all of the same type
-
-•Index-By Tables (Associative Arrays)
-
-The collection is indexed using BINARY_INTEGER values
-
-TYPE table_type IS TABLE OF NUMBER(10)
-    INDEX BY BINARY_INTEGER;
-
-•Nested Table
-
-Nested table collections are an extension of the index-by tables. The main difference between the two is that nested tables can be stored in a database column but index-by tables cannot. In addition some DML operations are possible on nested tables when they are stored in the database.Once created elements can be deleted using the DELETE method to make the collection sparse
-
+A Collection is an ordered group of elements, all of the same type.  
+Each element has a unique subscript, called an index, that determines its position in the collection.  
+###Tyes of Collection###
+- Index-By Tables
+- Nested Table
+- Varrays
+  
+**Index-By Tables (Associative Arrays)**  
+The collection is indexed using BINARY_INTEGER values  
+  
+TYPE table_type IS TABLE OF NUMBER(10)  
+    INDEX BY BINARY_INTEGER;  
+  
+**Nested Table**  
+Nested table collections are an extension of the index-by tables.  
+The main difference between the two is that nested tables can be *stored in a database column* but index-by tables cannot.  
+In addition some DML operations are possible on nested tables when they are stored in the database. Once created elements can be deleted using the DELETE method to make the collection sparse  
+  
 TYPE table_type IS TABLE OF NUMBER(10);
 
 
@@ -39,7 +44,7 @@ BEGIN
    v2 := varray_type(1, 2, 3, 4, 5); -- Up to 5 integers
    v3(99) := 10; -- Just start assigning to elements
    v3(7) := 100; -- Subscripts can be any integer values
-   v4(42) := 'Smith'; -- Just start assigning to elements
+   v4(42) := 'Smith'; -- Just start assigning to elements 
    v4(54) := 'Jones'; -- Subscripts can be any integer values
    v5('Canada') := 'North America'; -- Just start assigning to elements
    v5('Greece') := 'Europe';        -- Subscripts can be string values
