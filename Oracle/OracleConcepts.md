@@ -64,7 +64,8 @@ or may be a subset of the rows and/or columns of a table or join result, or may 
 - Handling huge data 
 - Exceptions in bulk collect
 ## Collection  
-A **Collection** is an ordered group of elements, all of the same type. Each element has a unique subscript, called an index, that determines its position in the collection
+A **Collection** is an ordered group of elements, all of the same type. Each element has a unique subscript, called an index, that determines its position in the collection  
+[O-Base Link](https://oracle-base.com/articles/8i/collections-8i)
 ## Ref cursor
 ## cursor
 When a query is executed in oracle, a result set is produced and stored in the memory. Oracle allows the programmer to access this result set in the memory through cursors. 
