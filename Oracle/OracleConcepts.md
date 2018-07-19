@@ -30,6 +30,18 @@ If two tables in a join query have no join condition, then Oracle Database retur
 Result will have.............
 
 Link: https://www.techdoubts.com/different-types-of-joins-in-oracle/
+## Inline View
+An inline view is a SELECT statement in the FROM-clause of another SELECT statement. In-line views are commonly used to simplify complex queries by removing join operations and condensing several separate queries into a single query. 
+```
+SELECT a.last_name, a.salary, a.department_id, b.maxsal
+  FROM employees a,
+       ( SELECT department_id, max(salary) maxsal
+         FROM employees
+         GROUP BY department_id ) b
+ WHERE a.department_id = b.department_id
+   AND a.salary = b.maxsal;
+```  
+The above query display the employees who earn the highest salary in each department.  
 ## Table - keys
 - **Primary key**
 - **Foreign key** is a way to enforce referential integrity within your Oracle database. A foreign key means that values in one table must also appear in another table.
@@ -123,8 +135,29 @@ dbms_stats.gather_table_stats
 ## Mutating a  trigger
 ## columns 
 - limit - 1000 In Newer version of Oracle
-## CTE 
-- Common set 
+## WITH CTE 
+A Common Table Expression (CTE) is the result set of a query which exists temporarily and for use only within the context of a larger query.
+- Needing to reference a derived table multiple times in a single query
+- An alternative to creating a view in the database
+- Performing the same calculation multiple times over across multiple query components
+Example:  
+```
+-- define CTE:
+WITH Cost_by_Month AS
+(SELECT campaign_id AS campaign,
+       TO_CHAR(created_date, 'YYYY-MM') AS month,
+       SUM(cost) AS monthly_cost
+FROM marketing
+WHERE created_date BETWEEN NOW() - INTERVAL '3 MONTH' AND NOW()
+GROUP BY 1, 2
+ORDER BY 1, 2)
+
+-- use CTE in subsequent query:
+SELECT campaign, avg(monthly_cost) as "Avg Monthly Cost"
+FROM Cost_by_Month
+GROUP BY campaign
+ORDER BY campaign
+```
 ### With clause
 ## Database links 
 - connect externally (DB links)
