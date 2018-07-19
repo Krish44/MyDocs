@@ -114,10 +114,13 @@ You don't want the users to have to worry about knowing which schema owns the ob
 dbms_random.value( 10, 100 )
 dbms_stats.gather_table_stats
 ## Autonomous Transactions
- Autonomous transactions allow you to leave the context of the calling transaction, 
+ - Autonomous transactions allow you to leave the context of the calling transaction, 
  perform an independent transaction, and return to the calling transaction without affecting it's state.
- - If commit in autotracns affects current block DML 
- - Example  
+ - The autonomous transaction has no link to the calling transaction, so only commited data can be shared by both transactions.
+ - If commit in autotracns affects current block DML - No
+- Commonly used by error logging routines, where the error messages must be preserved, regardless of the the commit/rollback status of the transaction  
+
+  
 [Autonomous Transaction](https://oracle-base.com/articles/misc/autonomous-transactions)
 ## deadlock
 ## Triggers
