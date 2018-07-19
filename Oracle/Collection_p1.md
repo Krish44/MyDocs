@@ -1,6 +1,9 @@
 
 A Collection is an ordered group of elements, all of the same type.  
 Each element has a unique subscript, called an index, that determines its position in the collection.  
+   
+Dense Collection: A collection that has no gaps in the indicies of the collection  
+Sparse Collection: A collection with gaps in the indicies is known as a sparse collection.  
 ### Tyes of Collection
 - Index-By Tables
 - Nested Table
