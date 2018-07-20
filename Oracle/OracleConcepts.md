@@ -119,7 +119,6 @@ dbms_stats.gather_table_stats
  - The autonomous transaction has no link to the calling transaction, so only commited data can be shared by both transactions.
  - If commit in autotracns affects current block DML - No
 - Commonly used by error logging routines, where the error messages must be preserved, regardless of the the commit/rollback status of the transaction  
-
   
 [Autonomous Transaction](https://oracle-base.com/articles/misc/autonomous-transactions)
 ## deadlock
