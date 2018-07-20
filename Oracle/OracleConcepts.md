@@ -203,12 +203,22 @@ We would fetch rows from DEPT in a full scan and then find the rows in EMP that 
 ## Rank vs Dense Rank
 ## Joins vs Merge
 ## Truncate vs delete
- - Triggers on truncate?
+**Triggers on truncate?**
+- Not possible
+- Triggers fire when DML commands are executed.
+- TRUNCATE is a DDL command  
+  Ex: TRUNCATE TABLE simple_tab;
+**Comparision**  
+ - Truncate will be faster as there is no condition to check
+ - Delete it will go through the all records to find which ones fit the condition
+ - Cannot roll back a TRUNCATE TABLE statement
+ - DELETE requires a COMMIT, but TRUNCATE does not
+[DDL, DML, DCL and TCL](http://www.orafaq.com/wiki/SQL_FAQ#What_are_the_difference_between_DDL.2C_DML_and_DCL_commands.3F)
 ## In vs EXISTS
 - More efficient one?
 'IN' can be used on sub-queries as well as with values.  
-Eg:   
-
+  
+Example:    
 **With values:**  
 SELECT *
 FROM test_emp  
@@ -228,8 +238,10 @@ WHERE exists ( select deptno
 from test_emp 
 where deptno=10 or deptno=20 or deptno=30);  
   
-Exists is used to check whether the sub-query returns any rows 
-whereas IN is used as multiple OR operator
+**Comparision**   
+ - Exists is used to check whether the sub-query returns any rows whereas IN is used as multiple OR operator
+ - Exists checks boolean where as in checks multiple strings (find any matches of values in column)
+ - IN should be used when the sub query will return small result set (sub query should not return null values)
 
 ## SQL\*Loader vs External Table
 ## Exception Handling
@@ -244,6 +256,7 @@ https://docs.oracle.com/cd/B10501_01/appdev.920/a96624/07_errs.htm#917
 
 ## 12c vs 11g
 ## Is it possible to commit in a function
+- Yes, you can do that if you make the function an autonomous transaction. That way it will not be part of the current transaction anymore.
 ## How to call a function in a procedure
 ## How to handle large amount of data  
 ## Writing security scripts
