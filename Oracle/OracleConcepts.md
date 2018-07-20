@@ -207,7 +207,7 @@ We would fetch rows from DEPT in a full scan and then find the rows in EMP that 
 - Not possible
 - Triggers fire when DML commands are executed.
 - TRUNCATE is a DDL command  
-  Ex: TRUNCATE TABLE simple_tab;
+  Ex: TRUNCATE TABLE simple_tab;   
 **Comparision**  
  - Truncate will be faster as there is no condition to check
  - Delete it will go through the all records to find which ones fit the condition
@@ -215,30 +215,28 @@ We would fetch rows from DEPT in a full scan and then find the rows in EMP that 
  - DELETE requires a COMMIT, but TRUNCATE does not
 [DDL, DML, DCL and TCL](http://www.orafaq.com/wiki/SQL_FAQ#What_are_the_difference_between_DDL.2C_DML_and_DCL_commands.3F)
 ## In vs EXISTS
-- More efficient one?
-'IN' can be used on sub-queries as well as with values.  
-  
 Example:    
 **With values:**  
 SELECT *
 FROM test_emp  
 WHERE deptno in ( 10,20,30);  
 
-**With sub-query:**
+**With sub-query:**  
 SELECT *
 FROM test_emp  
 WHERE deptno in ( select deptno 
 from test_emp   
 where deptno=10 or deptno=20 or deptno=30);
 
-**Whereas 'EXISTS' can only be used on sub-queries.**
+**Whereas 'EXISTS' can only be used on sub-queries.**   
 SELECT *
 FROM test_emp
 WHERE exists ( select deptno
 from test_emp 
-where deptno=10 or deptno=20 or deptno=30);  
+where deptno=10 or deptno=20 or deptno=30);    
   
 **Comparision**   
+ - 'IN' can be used on sub-queries as well as with values.  
  - Exists is used to check whether the sub-query returns any rows whereas IN is used as multiple OR operator
  - Exists checks boolean where as in checks multiple strings (find any matches of values in column)
  - IN should be used when the sub query will return small result set (sub query should not return null values)
