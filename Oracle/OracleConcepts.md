@@ -88,6 +88,17 @@ When a query is executed in oracle, a result set is produced and stored in the m
 - Allows Oracle to query data that is stored outside the database in flat files.  
 - CREATE TABLE..ORGANIZATION EXTERNAL syntax.  
 [External table](https://oracle-base.com/articles/9i/external-tables-9i)
+
+## SQLPlus
+- To pass variable from shell script to sqlplus:    
+```
+sqlplus -S user/pass@localhost << EOF
+@/opt/D2RQ/file.sql total_count BUILDING
+exit;
+EOF
+```
+[Accepting parameters](https://stackoverflow.com/questions/17575321/how-to-pass-variable-from-shell-script-to-sqlplus/#answer-17575609)
+  
 ## Moving data into file
 ## sqlloader
 5 Types of files associated with SQLLOADER
@@ -126,10 +137,10 @@ dbms_stats.gather_table_stats
 - EXE immediate for DDL (Autonomous transaction)
 - Function - DDL possible in similar ways
 - **Max triggers on a table** (12)  
-   Insert/Update/Delete :- 3 
-   Before/After:- 2 
-   Row Level/Statement Level:-2 
-   Hence 3*2*2 
+   Insert/Update/Delete :- 3  
+   Before/After:- 2  
+   Row Level/Statement Level:-2  
+   Hence 3*2*2  
  - There is no limit. Also, from 11g on wards, compound triggers are supported  
 ### Types of triggers  
 - Row level 
