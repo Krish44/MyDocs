@@ -47,6 +47,23 @@ The above query display the employees who earn the highest salary in each depart
 - **Foreign key** is a way to enforce referential integrity within your Oracle database. A foreign key means that values in one table must also appear in another table.
 - **Unique key** 
 ## Indexes
+## Listagg
+Listagg is typically used to denormalize rows into a string of comma-separated values (CSV) or other comparable formats suitable for human reading.   
+   
+The minimal syntax is:  
+```
+LISTAGG(<expression>, <separator>) WITHIN GROUP(ORDER BY …)
+```
+Example:  
+```
+SELECT g
+     , LISTAGG(value, ',') WITHIN GROUP (ORDER BY o) list
+  FROM (SELECT g, min(o) o, value
+          FROM dist_listagg
+         GROUP BY g, value
+       ) dt
+ GROUP BY g
+```  
 ## Views
 - Types of views  
  Simple view (Single table)  
