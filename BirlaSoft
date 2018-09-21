@@ -1,0 +1,20 @@
+Oracle
+============
+* Delete statement to delete duplicate records from EMP table
+* select 2nd highest salary from emp
+* find the error
+
+SELECT CITY, COUNT(1) FROM T_LOCATION GROUP BY CITY WHERE CITY LIKE '%SOUTH';
+
+SELECT CITY, COUNT(1) CNT FROM T_LOCATION GROUP BY CITY WHERE CNT > 5;
+
+ProC
+============
+* Get the string from a specific length in a variable
+"LOCATION"
+"CAT"
+* How to execute in a proC
+DELETE FROM T_EMP WHERE EMP_ID = 1001;
+* Cut and get all the values after 4th index
+AAAABBBBBB
+AAAACCCC
