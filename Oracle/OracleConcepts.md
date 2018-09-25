@@ -43,9 +43,10 @@ SELECT a.last_name, a.salary, a.department_id, b.maxsal
 ```  
 The above query display the employees who earn the highest salary in each department.  
 ## Table - keys
-- **Primary key**
+- **Primary key** Primary key is clustered index, and the data in database table is physically organized in the sequence of clustered index  
 - **Foreign key** is a way to enforce referential integrity within your Oracle database. A foreign key means that values in one table must also appear in another table.
 - **Unique key** 
+https://www.c-sharpcorner.com/blogs/difference-between-primary-key-unique-key-and-foreign-key1
 ## Indexes
 ## Listagg
 Listagg is typically used to denormalize rows into a string of comma-separated values (CSV) or other comparable formats suitable for human reading.   
