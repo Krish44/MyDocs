@@ -187,8 +187,8 @@ dbms_stats.gather_table_stats
    Insert/Update/Delete :- 3  
    Before/After:- 2  
    Row Level/Statement Level:-2  
-   Hence 3*2*2  
- - There is no limit. Also, from 11g on wards, compound triggers are supported  
+   Hence 3x2x2  
+ - There is no limit. Also, from 11g on wards, compound triggers are supported  [Compound Triggers](https://asktom.oracle.com/pls/apex/f?p=100:11:0::::P11_QUESTION_ID:9526879900346669506)
 ### Types of triggers  
 - Row level 
 - Statement level
