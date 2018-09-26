@@ -48,6 +48,18 @@ The above query display the employees who earn the highest salary in each depart
 - **Unique key** 
 https://www.c-sharpcorner.com/blogs/difference-between-primary-key-unique-key-and-foreign-key1
 ## Indexes
+## Clusters
+An optional method of storing table data. 
+A cluster is made up of a group of tables that share the same data blocks. 
+The tables are grouped together because they share common columns and are often used together.  
+**Benefits:**
+- Disk I/O is reduced and access time improves for joins of clustered tables.
+- The cluster key is the column, or group of columns, that the clustered tables have in common.  
+Should not use clusters for tables that are frequently accessed individually.  
+(DML) statements cannot be issued against cluster tables in an indexed cluster until you create a cluster index with a CREATE INDEX statement.   
+
+Link: https://docs.oracle.com/cd/B28359_01/server.111/b28310/clustrs001.htm#ADMIN11739   
+Clustered Index: https://asktom.oracle.com/pls/asktom/f?p=100:11:0::::P11_QUESTION_ID:586423377841  
 ## Listagg
 Listagg is typically used to denormalize rows into a string of comma-separated values (CSV) or other comparable formats suitable for human reading.   
    
