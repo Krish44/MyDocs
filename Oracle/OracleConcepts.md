@@ -48,18 +48,30 @@ The above query display the employees who earn the highest salary in each depart
 - **Unique key** 
 https://www.c-sharpcorner.com/blogs/difference-between-primary-key-unique-key-and-foreign-key1
 ## Indexes
+- Optional structures associated with tables and clusters that allow SQL statements to execute more quickly against a table   
+- Oracle Database index provides a faster access path to table data  
+- More efficient to create an index for a table after inserting or loading the data
+- To improve performance on joins of multiple tables, index columns used for joins
+- Primary and unique keys automatically have indexes, but you might want to create an index on a foreign key
+- When rows are inserted or deleted, all indexes on the table must be updated as well
+- When a column is updated, all indexes that contain the column must be updated. 
+   
+Link: https://docs.oracle.com/cd/B19306_01/server.102/b14231/indexes.htm#i1007292
+
 ## Clusters
 An optional method of storing table data. 
 A cluster is made up of a group of tables that share the same data blocks. 
 The tables are grouped together because they share common columns and are often used together.  
 **Benefits:**
 - Disk I/O is reduced and access time improves for joins of clustered tables.
-- The cluster key is the column, or group of columns, that the clustered tables have in common.  
+- The cluster key is the column, or group of columns, that the clustered tables have in common. 
+   
 Should not use clusters for tables that are frequently accessed individually.  
 (DML) statements cannot be issued against cluster tables in an indexed cluster until you create a cluster index with a CREATE INDEX statement.   
 
 Link: https://docs.oracle.com/cd/B28359_01/server.111/b28310/clustrs001.htm#ADMIN11739   
 Clustered Index: https://asktom.oracle.com/pls/asktom/f?p=100:11:0::::P11_QUESTION_ID:586423377841  
+Also see: **Oracle Real Application Clusters applications**
 ## Listagg
 Listagg is typically used to denormalize rows into a string of comma-separated values (CSV) or other comparable formats suitable for human reading.   
    
