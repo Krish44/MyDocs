@@ -126,10 +126,7 @@ When a query is executed in oracle, a result set is produced and stored in the m
 ## Informatica - Cleanser tool
 ## Adobe Info Sphere
 ## Cursor scenarios 
-## External Table
-- Allows Oracle to query data that is stored outside the database in flat files.  
-- CREATE TABLE..ORGANIZATION EXTERNAL syntax.  
-[External table](https://oracle-base.com/articles/9i/external-tables-9i)
+
 
 ## SQLPlus
 - To pass variable from shell script to sqlplus:    
@@ -144,6 +141,14 @@ EOF
 ## Moving data into file
 ## sqlloader
 5 Types of files associated with SQLLOADER
+
+## External Table
+- Allows Oracle to query data that is stored outside the database in flat files.  
+- CREATE TABLE..ORGANIZATION EXTERNAL syntax.  
+[External table](https://oracle-base.com/articles/9i/external-tables-9i)  
+
+## SQL\*Loader vs External Table
+
 ## BLOB
 blob (Binary Large Object) is an Oracle data type that can hold up to 4 GB of data. BLOB's are handy for storing digitized information 
  (e.g., images, 	audio, video).
@@ -293,15 +298,37 @@ where deptno=10 or deptno=20 or deptno=30);
  - Exists checks boolean where as in checks multiple strings (find any matches of values in column)
  - IN should be used when the sub query will return small result set (sub query should not return null values)
 
-## SQL\*Loader vs External Table
 ## Exception Handling
 To handle certain kinds of errors meaningful to your PL/SQL program.
- - Other than 'when others' and 'no data found'
- - Ex: TOO_MANY_ROWS, INVALID_CURSOR, INVALID_NUMBER, ZERO_DIVIDE, CASE_NOT_FOUND
+ -  The functions SQLCODE and SQLERRM are especially useful in the OTHERS handler because they return the Oracle error code and message text. 
+ - Alternatively, you can use the pragma EXCEPTION_INIT to associate exception names with Oracle error codes.
+ - Other than 'when others' and 'no_data_found'  
+Ex: TOO_MANY_ROWS, INVALID_CURSOR, INVALID_NUMBER, ZERO_DIVIDE, CASE_NOT_FOUND, LOGIN_DENIED   
 ### Pragma - errors
  - Associating a PL/SQL Exception with a Number: Pragma EXCEPTION_INIT
- - To handle error conditions (typically ORA- messages) that have no predefined name, you must use the OTHERS handler or the pragma EXCEPTION_INIT. A pragma is a compiler directive that is processed at compile time, not at run time.
- - Syntax: PRAGMA EXCEPTION_INIT(exception_name, -Oracle_error_number);
+ - To handle error conditions (typically ORA- messages) that have no predefined name, you must use the OTHERS handler or the pragma EXCEPTION_INIT. 
+ - A pragma is a compiler directive that is processed at compile time, not at run time.
+ - The pragma EXCEPTION_INIT tells the compiler to associate an exception name with an Oracle error number
+ - Syntax: PRAGMA EXCEPTION_INIT(exception_name, -Oracle_error_number);  
+ Ex: 
+ ```
+ DECLARE
+   deadlock_detected EXCEPTION;
+   PRAGMA EXCEPTION_INIT(deadlock_detected, -60);
+BEGIN
+   ... -- Some operation that causes an ORA-00060 error
+EXCEPTION
+   WHEN deadlock_detected THEN
+      -- handle the error
+END;
+ ``` 
+The procedure RAISE_APPLICATION_ERROR lets you issue user-defined ORA- error messages from stored subprograms. That way, you can report errors to your application and avoid returning unhandled exceptions.  
+Syntax: 
+```
+raise_application_error(error_number, message[, {TRUE | FALSE}]);  
+where error_number is a negative integer in the range -20000 .. -20999 and message is a character string up to 2048 bytes long. 
+```
+ 
 https://docs.oracle.com/cd/B10501_01/appdev.920/a96624/07_errs.htm#917
 
 ## 12c vs 11g
