@@ -1,0 +1,111 @@
+"""
+Docker is a tool that allows developers, sys-admins etc. to easily deploy their applications in a sandbox (called containers) to run on the host operating system i.e. Linux. The key benefit of Docker is that it allows users to package an application with all of its dependencies into a standardized unit for software development. 
+Unlike virtual machines, containers do not have the high overhead and hence enable more efficient usage of the underlying system and resources.
+
+Links:
+Demo			   :	https://docker-curriculum.com/
+Build docker	:	 https://docs.docker.com/engine/reference/builder/#run
+
+"""
+Properties:
+----------------------
+# Docker creates a new container every time, everything should start working again.
+# Clean up containers once I'm done with them
+
+Terminologis:
+--------------------------
+* Images 
+# The blueprints of our application which form the basis of containers. In the demo above, we used the docker pull command to download the busybox image.
+* Containers
+# Created from Docker images and run the actual application. We create a container using docker run which we did using the busybox image that we downloaded. A list of running containers can be seen using the docker ps command.
+* Docker Daemon 
+# The background service running on the host that manages building, running and distributing Docker containers. 
+# The daemon is the process that runs in the operating system to which clients talk to.
+* Docker Client 
+# The command line tool that allows the user to interact with the daemon. More generally, there can be other forms of clients too # such as Kitematic which provide a GUI to the users.
+* Docker Hub 
+# A registry of Docker images. You can think of the registry as a directory of all available Docker images. If required, one can host their own Docker registries and can use them for pulling images.
+* Detached mode
+# Terminal is not attached to the running container. We can close our terminal and keep the container running.
+
+
+Cloud services
+------------------------
+Amazon Web Services
+Docker Hub
+
+Image vs container
+-------------------------------
+# a container is the runtime instance of an image
+# image is an inert, immutable, file that's essentially a snapshot of a container.
+
+Commands:
+----------------------
+$ docker pull busybox
+# fetches the busybox image from the Docker registry and saves it to our system
+$ docker run hello-world
+$ docker ps
+# shows you all containers that are currently running.
+$ docker ps -a     
+# A list of all containers that we ran
+$ docker run -it busybox sh
+# interactive tty in the container
+# run as many commands in the container as we want
+$ docker run --help
+# to see a list of all flags it supports
+$ docker rm
+# mention the container IDs to be cleaned up (stray containers will eat up disk space)
+# Ex: docker rm 305297d7a235 ff0a5c3750b9
+$ docker rm $(docker ps -a -q -f status=exited)
+# command deletes all containers that have a status of exited
+# -q flag, only returns the numeric IDs and -f filters output based on conditions provided
+# --rm flag that can be passed to docker run which automatically deletes the container once it's exited from
+$ docker container prune 
+# This will remove all stopped containers
+$ docker port [CONTAINER]
+# an see the ports 
+
+Demo:
+-------------
+$ docker run --rm prakhar1989/static-site
+# the --rm flag automatically removes the container when it exits.
+# Hit Ctrl+C to stop the container.
+$ docker run -d -P --name static-site prakhar1989/static-site
+# -d will detach our terminal, -P will publish all exposed ports to random ports and finally --name corresponds to a name we want to give
+$ docker port static-site
+# docker port [CONTAINER] 
+$ docker stop static-site
+
+# List avilable images:
+docker image ls
+# Running containers
+docker ps
+
+
+File: template_nomad_job.py
+CMD java -Xms256m -Xmx4096m -XX:+HeapDumpOnOutOfMemoryError -XX:+UseConcMarkSweepGC -jar /home/appsone/collection-service/collection-service-4.7.1.jar
+
+
+CMD java-Xms256m -Xmx4096m  -XX:+HeapDumpOnOutOfMemoryError -XX: -XX:+UseConcMarkSweepGC   -jar collection-service-${cs_version}.jar
+
+/usr/lib/jvm/zulu-8/bin/java -Xms256m -Xmx2048m -XX:+HeapDumpOnOutOfMemoryError -jar collating-service-${cs_version}.jar conf/dbconfig -Dhazelcast.config=/$NOMAD_JOB_PATH/collating-service/conf/cache/hazelcast.xml
+
+CMD java -Xms256m -Xmx2048m -XX:+HeapDumpOnOutOfMemoryError -jar collating-service-4.7.1.jar
+
+CMD java -Xms256m -Xmx2048m -XX:+HeapDumpOnOutOfMemoryError -jar collating-service-4.7.1.jar conf/dbconfig -Dhazelcast.config=/home/ayush/AppsOne_4.8.1/binary/Appsone_Service/collating-service/conf/cache/hazelcast.xml
+
+CMD java -XX:ReservedCodeCacheSize=128m -XX:+UseConcMarkSweepGC -Xms1024m -Xmx4096m -XX:+HeapDumpOnOutOfMemoryError -jar transaction-collector-4.7.1.jar
+
+
+Steps
+---------------
+# Create docker file
+docker build -t txncollectr:4.7.1 .
+docker images
+docker run -itd txncollectr:4.7.1
+docker ps
+docker exec -it 5e4a09de572b sh
+
+netstat -apn | grep <port>
+
+
