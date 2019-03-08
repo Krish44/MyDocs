@@ -17,3 +17,7 @@ https://partner.microsoft.com/en-us/training/assets/collection/introduction-to-b
 
 Artificial Intelligence (17996)
 https://partner.microsoft.com/en-us/training/assets/collection/artificial-intelligence-17996#/
+
+------------------
+
+https://partner.microsoft.com/en-us/asset/collection/exam-70-774-prep-perform-cloud-data-science-azure-machine-learning-18339#/
