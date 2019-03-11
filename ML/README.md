@@ -20,4 +20,5 @@ https://partner.microsoft.com/en-us/training/assets/collection/artificial-intell
 
 ------------------
 
-https://partner.microsoft.com/en-us/asset/collection/exam-70-774-prep-perform-cloud-data-science-azure-machine-learning-18339#/
+https://partneruniversity.microsoft.com/?whr=uri:MicrosoftAccount&channel=MicrosoftPartnerNetwork
+https://mva.microsoft.com/en-US/training-courses/17286?l=cN6gz71qD_4900115881
