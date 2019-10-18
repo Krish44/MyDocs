@@ -1,0 +1,73 @@
+Django notes:
+-----------------------------
+
+# Start project
+	django-admin startproject mysite
+
+# Run 
+	python manage.py runserver
+	http://127.0.0.1:8000/
+
+# Changing the port
+	python manage.py runserver 8080
+
+* A project can contain multiple apps. An app can be in multiple projects.
+
+# To create your app
+	python manage.py startapp polls
+
+# Migrate apps
+	python manage.py migrate
+
+# Create user
+	python manage.py createsuperuser
+-----------------------------------------------------------------------------------
+
+django-admin startproject DjangoTest
+python manage.py runserver
+python manage.py startapp products
+
+# Run everytime models.py changed
+python manage.py makemigrations
+python manage.py migrate
+
+
+# Create user
+python manage.py createsuperuser
+
+
+# All of Django project stuff work inside python interpreter
+python manage.py shell
+from my_Products.models import Product
+Product.objects.create(title="T1",description="des2",price="prc2",summary="sum2")
+
+# Sample app creation:
+	python manage.py startapp my_profiles
+	# Edit files: models.py, admin.py
+	python manage.py makemigrations
+	python manage.py migrate
+
+# Set default homepage using view
+views.py : Place to handle various web pages, handles urls
+	# Modify views.py
+	# Add pattern in urls.py
+
+# Set templates
+Templates : to hold html files
+- Add template directory inside settings.py - TEMPLATES-DIRS
+
+
+Template tags
+context variables {{}}
+
+Field validation, Required field: 2:31
+
+
+
+
+
+
+
+
+
+
