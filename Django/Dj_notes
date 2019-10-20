@@ -35,7 +35,6 @@ python manage.py migrate
 # Create user
 python manage.py createsuperuser
 
-
 # All of Django project stuff work inside python interpreter
 python manage.py shell
 from my_Products.models import Product
@@ -76,10 +75,9 @@ User.objects.create_superuser(username, email, password)
 https://github.com/codingforentrepreneurs/Try-Django/tree/master/src
 https://github.com/sibtc/simple-django-login/tree/master/templates
 
-
-
 https://simpleisbetterthancomplex.com/tutorial/2016/06/27/how-to-use-djangos-built-in-login-system.html
 https://wsvincent.com/django-user-authentication-tutorial-login-and-logout/
+https://www.fir3net.com/Web-Development/Django/django.html
 
 
 
