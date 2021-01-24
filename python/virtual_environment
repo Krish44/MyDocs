@@ -1,0 +1,27 @@
+# Installing virtualenv:  
+pip install virtualenv   
+   
+# Create a local virtual env (Making specific to Python3+):   
+virtualenv -p /usr/bin/python3.6 local_venv   
+     
+# Activating Virtual Environment  
+source local_venv/bin/activate     
+   
+# Install required packages:   
+(local_venv) $ pip install npyscreen   
+(local_venv) $ pip install Django   
+      
+# These packages will be installed in - (local_venv) local_venv/lib/python3.6/site-packages   
+# Can copy that and keep it in any other desired folder   
+cp -r <required_pkgs_from_site-packages> /home/local/build/pydeps/   
+   
+# To exit from virtualenv   
+(local_venv) $ deactivate   
+   
+# From python code, to refer these packages, put following statement in python code:   
+import sys   
+sys.path.insert(0,'/home/local/build/pydeps')   
+import npyscreen as nps   
+   
+# Code will refer these downloaded packages for importing further   
+   
