@@ -1,0 +1,42 @@
+bin : Binary
+
+etc - Registry, Local Machine
+boot - The boot partition
+bin and sbin - Windows and system32
+lib - system32
+opt and some bin - Program Files
+dev and proc has no corresponding windows directories
+home and root - Users
+media, mnt and cdrom - drive letters assigned by windows, but ntfs allows you to mount a partition to a folder like in linux
+
+
+dev: devices live here - hardware - disk - dev/sda
+	- Partition : sda1 , sda2
+etc: edit to configure (etcetera) - Config are stored. System wide applications
+
+home:
+
+lib : needed  by bin & sbin
+mnt : fund other mounted drives
+
+opt: optionals - vendor softwares - own softwares
+
+proc : psudo files - contains info about sys info and resources 
+	/proc/cpuinfo
+	/proc/uptime
+
+root: home of root . Can store but need root access
+
+run : if system shotdown it is empty
+
+srv: Service dir  Srv data stored. web/ftp server. 
+
+sys: way to interact with kernal. 
+
+tmp : temp stored by process
+	-  ideally clearn on boot up
+
+usr: User app space - Contains apps which are installed by user. bin - by sys. Unix System Resource. Non essential for system operation.
+
+var : variable directory. process that have crashed + process logs will be stored. Grow on size as we use system.
+
