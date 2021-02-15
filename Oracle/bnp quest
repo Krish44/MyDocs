@@ -1,0 +1,146 @@
+BNP Paribas Quest
+=================
+
+types of cursor
+types of index
+types of partition
+pipeline function
+adv and dis-adv of package
+advanced group function
+diff b/w prov & func
+diff b/w view & Mview
+Flashbacj query
+
+
+There are 2 basic approaches for the client to fetch the cursor output:
+- a single row at a time
+- a bunch of rows at a time (bulk fetching)
+
+Bulk fetching is preferred. It decreases context switching and makes it easier for the cursor to supply the output (as chunks and not single pieces).
+
+CURSOR cur_code IS SELECT * FROM code;
+FOR v_cur_code IN cur_code LOOP
+implement the business logic
+END LOOP;
+
+The same thing can be done by the pl/sql table
+TYPE tbl_code IS TABLE OF code%ROWTYPE INDEX BY BINARY_INTEGER;
+v_tbl_code tbl_code;
+SELECT * BULK COLLECT INTO v_tbl_code
+FOR v_count IN 1..v_tbl_code.COUNT LOOP
+Implement the business logic
+END LOOP;
+
+A collection is an ordered group of elements, all of the same type. For example, the grades for a class of students. Each element has a unique subscript 
+that determines its position in the collection. PL/SQL offers three kinds of collections: associative arrays, nested tables, and varrays (short for variable-size 
+arrays). Nested tables extend the functionality of associative arrays (formerly called PL/SQL tables or index-by tables).
+
+Bulk Collect
+============
+
+Bulk Processing in PL/SQL
+The bulk processing features of PL/SQL are designed specifically to reduce the number of context switches required to communicate from the PL/SQL engine 
+to the SQL engine.
+
+Use the BULK COLLECT clause to fetch multiple rows into one or more collections with a single context switch.
+
+Use the FORALL statement when you need to execute the same DML statement repeatedly for different bind variable values. The UPDATE statement in the 
+increase_salary procedure fits this scenario; the only thing that changes with each new execution of the statement is the employee ID.
+
+About BULK COLLECT
+=================
+
+To take advantage of bulk processing for queries, you simply put BULK COLLECT before the INTO keyword and then provide one or more collections after 
+the INTO keyword. Here are some things to know about how BULK COLLECT works: 
+
+It can be used with all three types of collections: associative arrays, nested tables, and VARRAYs.
+
+You can fetch into individual collections (one for each expression in the SELECT list) or a single collection of records.
+
+The collection is always populated densely, starting from index value 1.
+
+If no rows are fetched, then the collection is emptied of all elements.
+
+Listing 5 demonstrates an example of fetching values for two columns into a collection of records.
+
+Code Listing 5: Fetching values for two columns into a collection 
+
+TYPE employee_info_t IS TABLE OF two_cols_rt;
+
+   l_employees   employee_info_t;
+BEGIN
+   SELECT employee_id, salary
+     BULK COLLECT INTO l_employees
+     FROM employees
+    WHERE department_id = 10;
+END;
+ 
+If you are fetching lots of rows, the collection that is being filled could consume too much session memory and raise an error. To help you avoid such errors, Oracle Database offers a LIMIT clause for BULK COLLECT. Suppose that, for example, there could be tens of thousands of employees in a single department and my session does not have enough memory available to store 20,000 employee IDs in a collection.
+
+Instead I use the approach in Listing 6.
+
+Code Listing 6: Fetching up to the number of rows specified 
+
+DECLARE
+   c_limit PLS_INTEGER := 100;
+
+   CURSOR employees_cur
+   IS
+      SELECT employee_id
+        FROM employees
+       WHERE department_id = department_id_in;
+
+   TYPE employee_ids_t IS TABLE OF 
+      employees.employee_id%TYPE;
+
+   l_employee_ids   employee_ids_t;
+BEGIN
+   OPEN employees_cur;
+
+   LOOP
+      FETCH employees_cur
+      BULK COLLECT INTO l_employee_ids
+      LIMIT c_limit;
+
+      EXIT WHEN l_employee_ids.COUNT = 0;
+   END LOOP;
+END;
+
+
+For ALL
+=======
+Here are some things to know about FORALL:
+
+Each FORALL statement may contain just a single DML statement. If your loop contains two updates and a delete, then you will need to write three FORALL statements.
+
+PL/SQL declares the FORALL iterator (indx on line 30 in Listing 4) as an integer, just as it does with a FOR loop. You do not need to—and you should not—declare
+ a variable with this same name.
+
+In at least one place in the DML statement, you need to reference a collection and use the FORALL iterator as the index value in that collection 
+(see line 35 in Listing 4).
+
+When using the IN low_value . . . high_value syntax in the FORALL header, the collections referenced inside the FORALL statement must be densely filled. 
+That is, every index value between the low_value and high_value must be defined.
+
+If your collection is not densely filled, you should use the INDICES OF or VALUES OF syntax in your FORALL header. 
+
+
+
+==============================================================
+
+DECLARE
+   TYPE two_cols_rt IS RECORD
+   (
+      employee_id   employees.employee_id%TYPE,
+      salary        employees.salary%TYPE
+   );
+
+
+
+http://www.oracle.com/technetwork/issue-archive/2012/12-jul/o42plsql-1653077.html---Nested
+http://www.oracle.com/technetwork/issue-archive/2012/12-sep/o52plsql-1709862.html---Bulk Collect
+
+
+BULK COLLECT: SELECT statements that retrieve multiple rows with a single fetch, improving the speed of data retrieval
+
+FORALL: INSERTs, UPDATEs, and DELETEs that use collections to change multiple rows of data very quickly

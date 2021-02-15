@@ -1,0 +1,28 @@
+Oracle
+============
+* Delete statement to delete duplicate records from EMP table
+* Advantage of package over procedure
+* select 2nd highest salary from emp
+* find the error
+
+SELECT CITY, COUNT(1) FROM T_LOCATION GROUP BY CITY WHERE CITY LIKE '%SOUTH';
+
+SELECT CITY, COUNT(1) CNT FROM T_LOCATION GROUP BY CITY WHERE CNT > 5;
+
+ProC
+============
+* Get the string from a specific length in a variable
+"LOCATION"
+"CAT"
+* How to execute in a proC
+DELETE FROM T_EMP WHERE EMP_ID = 1001;
+
+Unix:
+==============
+* Cut and get all the values after 4th index
+AAAABBBBBB
+AAAACCCC
+
+Links:
+----------
+https://www.unix.com/shell-programming-and-scripting/123855-need-find-string-check-next-line-if-matches-certain-criteria-replace.html

@@ -1,0 +1,67 @@
+What Is a Collection?
+
+A collection is an ordered group of elements, all of the same type. It is a general concept that encompasses lists, arrays, and other familiar datatypes. Each element has a unique subscript that determines its position in the collection.
+
+
+Collections are used in some of the most important performance optimization features of PL/SQL, such as
+
+BULK COLLECT. SELECT statements that retrieve multiple rows with a single fetch, increasing the speed of data retrieval.
+FORALL. Inserts, updates, and deletes that use collections to change multiple rows of data very quickly
+Table functions. PL/SQL functions that return collections and can be called in the FROM clause of a SELECT statement.
+
+
+Types of Collections
+Collections were first introduced in Oracle7 Server and have been enhanced in several ways through the years and across Oracle Database versions. There are now three types of collections to choose from, each with its own set of characteristics and each best suited to a different circumstance.
+
+Associative array. The first type of collection available in PL/SQL, this was originally called a “PL/SQL table” and can be used only in PL/SQL blocks. Associative arrays can be sparse or dense and can be indexed by integer or string.
+
+Nested table. Added in Oracle8 Database, the nested table can be used in PL/SQL blocks, in SQL statements, and as the datatype of columns in tables. Nested tables can be sparse but are almost always dense. They can be indexed only by integer. You can use the MULTISET operator to perform set operations and to perform equality comparisons on nested tables.
+
+Varray. Added in Oracle8 Database, the varray (variable-size array) can be used in PL/SQL blocks, in SQL statements, and as the datatype of columns in tables. Varrays are always dense and indexed by integer. When a varray type is defined, you must specify the maximum number of elements allowed in a collection declared with that type.
+
+
+
+Syntax
+======
+
+Nested Tables
+
+For nested tables, use the syntax:
+
+TYPE type_name IS TABLE OF element_type [NOT NULL];
+
+type_name is a type specifier used later to declare collections. For nested tables declared within PL/SQL, element_type is any PL/SQL datatype except:
+
+REF CURSOR
+Nested tables declared globally in SQL have additional restrictions on the element type. They cannot use the following element types:
+
+BINARY_INTEGER, PLS_INTEGER
+BOOLEAN
+LONG, LONG RAW
+NATURAL, NATURALN
+POSITIVE, POSITIVEN
+REF CURSOR
+SIGNTYPE
+STRING
+Varrays
+
+For varrays, use the syntax:
+
+TYPE type_name IS {VARRAY | VARYING ARRAY} (size_limit) 
+   OF element_type [NOT NULL];
+
+The meanings of type_name and element_type are the same as for nested tables.
+
+size_limit is a positive integer literal representing the maximum number of elements in the array. When defining a VARRAY type, you must specify its maximum size. In the following example, you define a type that stores up to 366 dates:
+
+DECLARE
+   TYPE Calendar IS VARRAY(366) OF DATE;
+
+Associative Arrays
+
+For associative arrays (also known as index-by tables), use the syntax:
+
+TYPE type_name IS TABLE OF element_type [NOT NULL]
+   INDEX BY [BINARY_INTEGER | PLS_INTEGER | VARCHAR2(size_limit)];
+   INDEX BY key_type;
+

@@ -6,7 +6,21 @@ Link: http://plsql-tutorial.com/plsql-cursors.htm
 PL/SQL Identifiers:
  a name that is given for a PL/SQL object. The object could be constant, variable, 
  exception, cursors, procedures, function, package, trigger, object type, reserve word or label. 
- 
+------------------------------------------------
+A query like this can be used to ping the database. The clause:
+
+WHERE 1=0
+Ensures that non data is sent back, so no CPU charge, no Network traffic or other resource consumption.
+
+A query like that can test for:
+
+server availability
+CUST_ATTR49 table existence
+ID column existence
+Keeping a connection alive
+Cause a trigger to fire without changing any rows
+manage many OR conditions in dynamic queries (e.g WHERE 1=0 OR <condition>)
+--------------------------------------------------
 Autonomous Transactions
  Autonomous transactions allow you to leave the context of the calling transaction, 
  perform an independant transaction, and return to the calling transaction without affecting it's state.
