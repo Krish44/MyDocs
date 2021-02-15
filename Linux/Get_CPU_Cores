@@ -1,0 +1,18 @@
+CPU Core info:
+
+Linux:
+grep "cpu cores" /proc/cpuinfo | awk -F":" '{k+=$2} END {print k}'
+no_of_cores=`cat /proc/cpuinfo | grep processor | wc -l` 
+
+AIX:
+sar -P ALL 1 1 | grep -w lcpu| awk '{print $3}'| cut -d"=" -f2
+no_of_cores=`mpstat | grep lcpu | cut -d '=' -f2 | awk '{print $1}'`
+
+Solaris:
+psrinfo -v | grep Status | tail -1 | awk '{x = $5 + 1; print x}'
+no_of_cores=`mpstat 2>$NULL_FILE | grep -v CPU | wc -l|sed "s/ *//"`
+
+HP-UX:
+ioscan -kf|grep processor|wc -l
+machinfo > $NULL_FILE
+no_of_cores=`grep -w "processors" $NULL_FILE | tail -1| awk '{print $1}'`
