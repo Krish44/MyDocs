@@ -1,0 +1,60 @@
+Cybersecurity with a Linux Operating System
+===============================================
+https://www.youtube.com/watch?v=M48naKSLvNs
+
+Linux Security systems:
+Permissions solve 99%
+1 % Other mechanisms
+
+
+User grp Other - Acces control permissions
+
+----------------------------------------
+|   Firewall     |    ACL               |     # For Users Outside of the system
+----------------------------------------
+|   PAM          |    SELinux           |     # For local users
+----------------------------------------
+|          UGO Permissions              |     # For local users
+----------------------------------------
+
+Firewall 
+------
+Connction from local and outside n/w based access
+Recognizes ports
+Categorizr NI
+Users outside of the system
+
+
+ACL
+------
+Access COntrol List
+- Based on IP, Port , Hostname 
+- UGO recognizes - local users and grop of system
+- Share the resources without creating accout for him - let the user get the access to the resource
+- Gives std rwx permission
+
+
+
+PAM
+------
+Pluggable Authentication Module
+- Common framework for auth for perticular app on system
+- Robust, verification 
+- Universal framework
+
+
+SELinux
+------
+Security enhanced linux
+- Mandaaory access condition
+- Dont care who you are - snsitivty level - caution alarm 
+- std app tries to access non-default directory for that application
+- Apache web server- share web pages from www dir
+
+
+
+UGO (Owner Group  Other)
+------
+Read-Write-Execute
+Discretionary access condition
+
