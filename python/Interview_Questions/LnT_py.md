@@ -1,8 +1,8 @@
 L & T  
 ===============  
-__itr__  
+\__itr__  
 magic methods  
-__?__ purpose  
+\__?__ purpose  
 Distionary constraints  
   
 enumerate  
