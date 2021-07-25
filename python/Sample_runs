@@ -1,0 +1,63 @@
+Division problem:   
+-----------------   
+if __name__ == '__main__':   
+    a,b = int(input()), int(input())   
+    print(a//b,a/b,sep='\n')   
+	   
+#==========================================================================>>   
+Update status:   
+----------------   
+If  is odd, print Weird   
+If  is even and in the inclusive range of  to , print Not Weird   
+If  is even and in the inclusive range of  to , print Weird   
+If  is even and greater than , print Not Weird   
+   
+n = int(input().strip())   
+check = {True: "Not Weird", False: "Weird"}   
+   
+print(check[   
+        n%2==0 and (   
+            n in range(2,6) or    
+            n > 20)   
+    ])   
+	   
+#==========================================================================>>   
+leap year condition:    
+--------------------   
+leap = (y%4==0) and ((y%100!=0) or (y%400==0))   
+[or]   
+import calendar   
+calendar.isleap(year)   
+#==========================================================================>>   
+Print range of num   
+--------------------   
+print(*range(20), sep=",")   
+   
+#==========================================================================>>   
+print sq of numbers in range   
+---------------------   
+print(*[num**2 for num in range(n)], sep='\n')   
+#==========================================================================>>   
+   
+Implementation of linked list   
+   
+Tuple   
+- Allows duplicate values, uncangable   
+- Index : 0 to n-1   
+- tuple with 1 item: thistuple = ("apple",)   
+   
+various ways to access Dictionary items   
+- collection which is ordered* and changeable.    
+- No duplicate members.   
+*As of Python version 3.7, dictionaries are ordered. In Python 3.6 and earlier, dictionaries are unordered.   
+   
+   
+sets    
+- collection which is unordered and unindexed.   
+- No duplicate members.   
+   
+   
+   
+List - applications   
+   
+   
