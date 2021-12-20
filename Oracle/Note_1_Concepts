@@ -1,0 +1,152 @@
+Oracle PL/SQL
+==============
+Indexing
+SQL tuning - AWR report
+Collections
+Queries - math operation, null functions
+Triggers
+
+
+
+
+
+
+Index
+------
+- Full table scan, when to go for partial table scan
+- Indexing : Major level
+- Function based index
+
+
+=============================================>>
+Trigger:
+--------
+- Mutating trigger
+	- Execution
+- Row/statement, Before /after - why?
+- Check functions (Check Constraints)
+	- sysdate, currdate (with dynamic values) cant be part of check constraints
+	- Can be tried with trigger
+- Insert inside insert statements
+- 
+
+=============================================>>
+Collections
+------------
+- Need (Bulk collect):
+	- To reduce context switching
+	- Millions of ddata update
+	- Bulk collect and update - limit class
+	- FOR ALL , __________
+	- SQL query - PLSQL block. After SQL execution control will be given to PLSQL, and vice versa.
+	- PLSQL- SQL (Contact switches)
+	- To reduce this we need Bulk collection
+	- Imporves performance for larger data
+	
+- V-array, Associate array - Differences
+- Use of collections
+- FOR ALL
+- Save exceptions
+- trim, delet ,extend  how to use in collections
+
+
+
+- Determinstic Function
+	- Pipelined functions: Similar pointers. 
+		- Associative funtions . For all - Bulk collect
+		- Once executed, data will be pulled. For next multiple executions - retirves same output
+		- Sends previpously collected data , from shared pool 
+
+SQL queries:
+-------------
+Join Queries
+WITH clause
+Complex SQLs. 
+Null function calculations
+	- Add/sum to null, concatenation
+
+Synonyms:
+	- Alternate name for view.
+	- DB to DB to copy structure
+	- To hide ownership
+
+Grant:
+Alias
+
+
+Views
+-------
+Materialised view
+- Materialised view without table 
+	- Force create
+- Drop table - Parent and child table
+	- DROP table with CASCADE DELETE
+- Query re-write
+	- Parent table calls will be deleted. Once deleted in one table, will delete in all table with key relations
+
+
+
+
+
+=============================================>>
+Performance Tuning
+-------------------
+- Different method of tuning
+- Joins methods
+	- Equi-join, Sorted-join, Nested-loop join 
+	- to avoid full joins
+	- Driving tables
+	
+- Equi joins
+	- matching two  tables =
+- Heap join 
+	- for huge set of data. 
+	- For two tables as equal to.
+- Sort-merge join 
+	- for > or < comparisions
+- Nested loop join
+	- Parent table has indexing, oher big table non indexed, Smaller table must be a driving table.
+ Tune will be based on what join it is
+ 
+Supressing of Index:
+	- Null function, concatenation. 
+	- Additional function on indexed column. 
+	- Index will not be appllicable in such cases
+	
+
+
+- Hints
+	- Indexes avaiable, Optimiser may not take the given indexes.
+	- Decision taken by optmiser can be changed using hints
+	- Shared pool will have data - Optimiser will know this was used before.
+	- So Optimiser will use the same index in next execution
+
+- Parsing
+	- Steps of SQL engines
+		- (1) Syntax checks
+		- (2) Symantics [devide by zero]
+		- (3) Sends to Optimiser (Suggesting index to use)
+		- For the first time shared pool will not  have data. Will take time (HARD Parse)
+			- Execution plan needs to be checked by optimiser
+		- If info is from shared pool - (SOFT Parse)
+
+
+	
+- Slowness fix:
+	- Tune , procedure problem solving
+	- Cost reduction
+- AWR report
+	- Workload reort
+	- Difference to tuning - AWR report 
+	- Work of DBs
+- Rebuild index 
+	- Slowness may be due to multiple update and deletes. So need to rebuid
+	- Helps in faster fetch
+	
+- TKPROF /PKPROF
+	- SQL Trace files convert to human redable format
+	
+	
+
+
+
