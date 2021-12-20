@@ -1,0 +1,24 @@
+Indexes:
+---------
+Link: https://blogs.oracle.com/sql/post/how-to-create-and-use-indexes-in-oracle-database
+
+
+Index columns and ponits where those rows are in the table
+Find rows quickly
+
+How to create indexes:
+create index <index_name> on <table_name> ( <column1>, <column2>, … );
+Ex: create index toys_color_i on toys ( color );
+
+Oracle DB only indexes rows where atleast one column has a non null value.
+If any row is null, that row doesnt appear on index
+
+- Index is smaller data structure than tabl it's on.
+- Advantage is they enbale to find a few rows quickly
+
+
+Index structures:
+- B tree:
+	- Stores in tree structure. Each node is DB block
+
+O(LOG (N)) : Order log N
