@@ -1,0 +1,59 @@
+Krishna Prasad Interview Document
+Program to print all the email ids in a given text file. 
+
+<id>@<domain>.<org>
+
+ abc@gmial.com
+
+grep “@*\.*” file_name 
+
+while read line
+do
+		for item in `echo $line`
+		do
+			echo $item | grep -q  “@*\.*”
+			if [ $? -eq 0 ];then
+				echo “Mail ID: $item”
+			fi
+		done
+done < mail_file
+
+
+Example File:
+     Email id xyz@anc.com,
+     Address b@xxy.com
+     cd@b.ac.in
+
+Line:
+Item:
+Step with echo cmd:
+Item:
+
+Program to identify if a given string is palindrome.
+
+Input - abcba   
+	
+	In_string = input(“Input string:”)
+	V_string = str(In_string)
+	V_reverse = In_string.rev(V_string)
+	If V_string is V_reverse:
+		Print(“Given string is palindrome”)
+	Else:
+		print(“Given string is not palindrome”)
+
+	
+
+V_string = list(In_string)
+R_list = [ : : -1]
+
+
+find all the files with *.html extension and replace “hi” with “hello” in all those files
+For files in `find ./ -name “*.html” -type f`
+Do
+	Grep -q  “hi” $files
+	If [ $? -eq];then
+		Echo “Keyword hi is present in file $files”
+	fi
+	Sed -i ‘s/hi/hello/g’ $files
+
+done
