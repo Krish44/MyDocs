@@ -1,0 +1,71 @@
+order_20210812010101.csv
+order_attr_20210812010101.csv
+
+20210812
+
+file_name[-1]
+v_str=[0:7:1]
+
+
+str = "my name is krishna"
+2+4+2+7
+4
+
+
+str = str.split(" ")
+v_list = list(str)
+
+word_count = 1
+for item in v_list:
+	if  item == " ":
+		word_count = word_count + 1
+
+total_letters = length(v_list) - word_count
+#==============================================
+
+i/p
+landing_dir=['abc_1_3_20210125.csv','abc_2_3_20210125.csv','abc_3_3_20210125.csv','abcd_1_1_20210125.csv']
+o/p
+abc pattern -> expected_files=3 recived files=3 -> all files recived
+
+i/p
+landing_dir=['abc_1_3_20210125.csv','abc_3_3_20210125.csv','abcd_1_1_20210125.csv']
+o/p
+abc pattern -> expected_files=3 recived files=2 -> all files not recived
+#==============================================
+
+
+comp_str_tab
+899
+9999
+88888
+77777
+9999999
+
+
+string -> '899,88888,88888,9999999'
+
+o/p:
+9999
+77777
+
+#==============================================
+emp
+id name mg_id
+1   a     2
+2   b     3
+3   c     null
+          
+o/p
+emp_name mng_name
+a b
+b c
+c null
+
+select a.name as emp_name, b.name as mng_name
+from emp a , emp b
+outer join 
+where a.mg_id = b.id
+
+
+
