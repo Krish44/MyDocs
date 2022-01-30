@@ -1,0 +1,49 @@
+Kumaran Interview:
+--------------------
+Requirement: python + Oracle + django + Data structures & algos + pandas & numpy 
+
+Design pattern + Data structures
+- Abstract factory design pattern
+- Singleton design pattern
+
+Django
+- Unit tetsing in python - Performace tuning in python
+- Djnago basic architecture
+- Django ORM : Implementation
+
+Oracle
+- view, Materialised view : when to use what
+- nested tables in oracle
+- performace of a procedure
+- when index will be supressed : scenarios
+- coalease function
+- Aggregate functions, group by
+- analytical functions
+- previlages of a user on a perticular package
+- integrity constraint
+- cascade delete
+
+Python
+- Python familiar libraries
+- built in python on 3.6 & above
+- namespaces in py : extent we can access that object
+- constructs , dunder
+- Dictionary and list comprehension (ex: generate odd num)
+- Decorator in py: examples of decorator (property decorator)
+- generators, iterators : fibo series using generators
+- regular expression lib : ex -  filter email by using re in a file
+- when  to use compile, search and fine in re. what is the need to compile a pattern
+- deep copy and shalow copy examples - differences
+- multi threading and multi processing
+- Context manager
+
+Unix
+- Check ip address of a URL (May be telnet)
+- Current running processes
+
+Company insights
+- Banking project. data from different sources.
+- Data loaded using ython framework
+- Monitoring done via Django
+- Job run- rerun done through Django
+- Can extract, transfer and load + monitor
