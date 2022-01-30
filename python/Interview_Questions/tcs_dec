@@ -1,0 +1,32 @@
+TCS Interview:
+----------------
+Requirement: PLSQL + Unix
+(Debasis & Abhijit)
+
+PLSQL
+- Oracle tools: Forms, reports
+- Modules and concepts used
+- Oracle versions : 11g, 12c, 19c?
+- DBA concepts : RDBMS concepts
+
+- Difference between functions and procedures
+- Levels of triggers - Table level triggers - Max triggers possible
+- File handling from PLSQL
+- Generate excel or pdf file from SQL block
+- Json file handling in PLSQL
+- Pass refernce from one method to other using cursor
+- result set
+- Why indexes on DB - How to build
+- Rowid and rownum
+- Bulk collections : Context swtching , types of collection 
+
+Unix
+- Permission - Authourization issue
+- sticky bit
+- kill & restart process : diff between soft kill ann hard kill
+- Thread dump or heapdump : meaning and how to collect
+
+
+- Basic difference between java and python
+- Statically typed and dynamically typed language
+- Azure cloud technologies
