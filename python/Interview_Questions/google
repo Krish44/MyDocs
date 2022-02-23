@@ -1,0 +1,41 @@
+Google Interview:
+
+Asked more:
+--------------
+Baseline for anamolies
+
+My points:
+-------------
+UI, Agents, Django
+
+
+Continuous integration & Delivery tools
+	- Jenkins(AHD tools ?), Git
+	- Jenkins user / configure
+	- Git: Commands 
+	- Diff betwen fetch and pull
+	- Coding between 2 collaborator on a same file
+	- Resolving merge conflicts
+	- Collaboration befoe pushing changes. Ways to receive others change - git command
+	- Got works on object level not at file level
+	- Changes in local repo  - get rid of changes - strategies (local changes & pushed changes scenario)
+	- Jenkins build creation
+	
+Python:
+	- Print mail IDs from a given file
+	- Palindrome check
+		- ex: input.rev : import ?
+		- implementation of: equals, in, ==, is
+		- using object library
+	- search for *html Replace content of the file. Replace keyword
+	
+Proect Scope:
+	- Industry ETA/EDA tools.
+	- Companies in silicon domain - intel, nvdia - VLSI engg
+	- Developing chips - Hardware
+	- tools - automation - Front-end CAD team. 
+	- Automating the EDA solutions - howm grown or written from scratch.
+	- SQl/MySQL - or write something new
+	- Python & Linux 
+	
+	
