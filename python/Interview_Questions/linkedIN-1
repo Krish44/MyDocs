@@ -1,0 +1,59 @@
+- Experience with networking (IP and IPv6, switching, routing, VLANs, ﬁrewalls, iptables, subnetting, anycast).
+- Experience in any of the public cloud solutions at application setup level and beyond (Azure/AWS/GCP)
+
+Linux:
+----------
+Insytall package in redhart Linux
+suspend running process linux
+
+Disk usage of a partition
+Load on a linux system
+* application communicate to kernal using
+	"System calls"
+* bash create an env parameters
+	export
+* If a process fails, most operating systems write the error information to:
+	a log file.
+* http status codes
+* DNS Database is the collection of :
+	database files, or zone files, and associated files that contain resource records for a domain.
+* TCP for contacting ssh
+	22
+* difference between virtual mem and swap
+	Simply put, virtual memory is a combination of RAM and disk space that running processes can use.
+	Swap space is the portion of virtual memory that is on the hard disk, used when RAM is full.
+
+Python:
+-----------
+* Py lib for http request 
+	httplib, urllib, httplib2 , treq
+* x=[1,2,3,4,5]
+
+*  List1.pop(1)
+*  time.time()
+	time in seconds since epoch
+* generators, iterators
+* lambda 
+* re
+
+
+
+Memory management
+Out of memory issues
+Python automation
+
+swap buffer
+dis cache , paging ,  swap, OOM
+basic n/w maangement, n/w services, protocols, sockets, TCP/IP handshake, UDP, ping,
+DNS, trace root, 
+Linux troubleshooting: booting, ssh, disk memmory, cpu load, n/w, mem, connectivity toubleshooting
+Python automation exp.
+
+
+Req:
+	Infra automation on py
+	OS basics
+	mem issues
+	git repo
+	Backend frameworks
+
